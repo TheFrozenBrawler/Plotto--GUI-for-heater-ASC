@@ -4,11 +4,11 @@ from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import QVBoxLayout, QHBoxLayout
 
 # later move to create widget file
-from PyQt6.QtCore import QSize
 from PyQt6.QtWidgets import QWidget, QLabel
 from PyQt6.QtGui import QPalette, QColor
 
-from components.widgets.WConnection import WConnectButton, WConnectStatus
+from components.widgets.WConnection import WConnectionCreate
+from components.widgets.WSetControlValues import WSetControlValues
 
 def MSetLayout():
     MLayout = QVBoxLayout()
@@ -18,19 +18,15 @@ def MSetLayout():
 
     SettingsLayout = QHBoxLayout()
     
-    # later move to create widget file
     MLayout.addWidget(GraphWidget)
     MLayout.addLayout(SettingsLayout)
 
-    # Connection widget
-    ConnectLayout = QVBoxLayout()
-    ConnectLayout.addWidget(WConnectButton())
-    ConnectLayout.addWidget(WConnectStatus())
-    ConnectLayout.setContentsMargins(10,50,10,10)
-    ConnectLayout.setSpacing(20)
-    SettingsLayout.addLayout(ConnectLayout)
+    # Create connection widget
+    SettingsLayout.addWidget(WConnectionCreate())
 
-    SettingsLayout.addWidget(Color('yellow'))
+    # Create Set PID widgets
+    SettingsLayout.addWidget(WSetControlValues())
+
     SettingsLayout.addWidget(Color('red'))
     SettingsLayout.addWidget(Color('blue'))
 
