@@ -9,6 +9,7 @@ from PyQt6.QtGui import QPalette, QColor
 
 from components.widgets.WConnection import WConnectionCreate
 from components.widgets.WSetControlValues import WSetControlValues
+from components.widgets.WOnOff import WOnOFF
 
 def MSetLayout():
     MLayout = QVBoxLayout()
@@ -24,10 +25,12 @@ def MSetLayout():
     # Create connection widget
     SettingsLayout.addWidget(WConnectionCreate())
 
-    # Create Set PID widgets
+    # Create Set PID widget
     SettingsLayout.addWidget(WSetControlValues())
 
-    SettingsLayout.addWidget(Color('red'))
+    # Create ON/OFF widget
+    SettingsLayout.addWidget(WOnOFF())
+
     SettingsLayout.addWidget(Color('blue'))
 
     return MLayout

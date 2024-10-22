@@ -7,18 +7,22 @@ from PyQt6.QtWidgets import QWidget, QVBoxLayout, QPushButton, QLabel
 
 # MAIN CONNECTION WIDGET
 def WConnectionCreate():
+    # create layouts
     ConnectWidget = QWidget()
     ConnectWidget.setMaximumWidth(round(int(cfg['MAIN']['AppInitW'])/4/5*4))
-    
     ConnectLayout = QVBoxLayout()
+
+    # add widgets to layouts
     ConnectLayout.addWidget(WConnectButton())
     ConnectLayout.addWidget(WConnectStatus())
     ConnectLayout.setContentsMargins(10,50,10,10)
     ConnectLayout.setSpacing(20)
 
+    # nest layouts
     ConnectWidget.setLayout(ConnectLayout)
 
     return ConnectWidget
+
 
 # CONNECT BUTTON
 def WConnectButton():
