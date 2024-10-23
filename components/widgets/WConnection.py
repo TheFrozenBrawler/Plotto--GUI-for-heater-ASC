@@ -1,15 +1,12 @@
-from config.config import cfg
-
 from PyQt6.QtCore import QSize, Qt
 from PyQt6.QtGui import QIcon
 from PyQt6.QtWidgets import QWidget, QVBoxLayout, QPushButton, QLabel
 
 
 # MAIN CONNECTION WIDGET
-def WConnectionCreate():
+def WConnection():
     # create layouts
     ConnectWidget = QWidget()
-    ConnectWidget.setMaximumWidth(round(int(cfg['MAIN']['AppInitW'])/4/5*4))
     ConnectLayout = QVBoxLayout()
 
     # add widgets to layouts

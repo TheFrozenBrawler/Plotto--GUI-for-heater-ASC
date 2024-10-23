@@ -7,23 +7,23 @@ from PyQt6.QtWidgets import QVBoxLayout, QHBoxLayout
 from PyQt6.QtWidgets import QWidget, QLabel
 from PyQt6.QtGui import QPalette, QColor
 
-from components.widgets.WConnection import WConnectionCreate
+from components.widgets.WGraph import WGraph
+from components.widgets.WConnection import WConnection
 from components.widgets.WSetControlValues import WSetControlValues
 from components.widgets.WOnOff import WOnOFF
 
 def MSetLayout():
     MLayout = QVBoxLayout()
-    GraphWidget = QLabel("Graph")
-    GraphWidget.setAlignment(Qt.AlignmentFlag.AlignCenter)
-    GraphWidget.setMinimumSize( int(cfg['MAIN']['AppInitW']), round(int(cfg['MAIN']['AppInitH'])/3*2) )
 
     SettingsLayout = QHBoxLayout()
     
-    MLayout.addWidget(GraphWidget)
+    # Create graph widget
+    MLayout.addWidget(WGraph())
+
     MLayout.addLayout(SettingsLayout)
 
     # Create connection widget
-    SettingsLayout.addWidget(WConnectionCreate())
+    SettingsLayout.addWidget(WConnection())
 
     # Create Set PID widget
     SettingsLayout.addWidget(WSetControlValues())
@@ -31,7 +31,7 @@ def MSetLayout():
     # Create ON/OFF widget
     SettingsLayout.addWidget(WOnOFF())
 
-    SettingsLayout.addWidget(Color('blue'))
+    # SettingsLayout.addWidget(Color('blue'))
 
     return MLayout
 
